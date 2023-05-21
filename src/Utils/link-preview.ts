@@ -5,6 +5,7 @@ import { WAMediaUploadFunction, WAUrlInfo } from '../Types'
 const THUMBNAIL_WIDTH_PX = 192
 export type URLGenerationOptions = {
 	thumbnailWidth: number
+	timeoutMs: number
 	fetchOpts: {
 		/** Timeout in ms */
 		timeout: number
@@ -27,6 +28,7 @@ export const getUrlInfo = async(
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	opts: URLGenerationOptions = {
 		thumbnailWidth: THUMBNAIL_WIDTH_PX,
+		timeoutMs: 3000,
 		fetchOpts: { timeout: 3000 }
 	},
 ): Promise<WAUrlInfo | undefined> => {
