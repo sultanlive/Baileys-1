@@ -715,7 +715,6 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 							text,
 							{
 								thumbnailWidth: linkPreviewImageThumbnailWidth,
-								timeoutMs: 3000,
 								fetchOpts: {
 									timeout: 3_000,
 									...axiosOptions || { }
