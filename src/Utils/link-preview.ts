@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios'
 import { Logger } from 'pino'
 import { WAMediaUploadFunction, WAUrlInfo } from '../Types'
 
@@ -5,6 +6,12 @@ const THUMBNAIL_WIDTH_PX = 192
 export type URLGenerationOptions = {
 	thumbnailWidth: number
 	timeoutMs: number
+	fetchOpts: {
+		/** Timeout in ms */
+		timeout: number
+		proxyUrl?: string
+		headers?: AxiosRequestConfig<{}>['headers']
+	}
 	uploadImage?: WAMediaUploadFunction
 	logger?: Logger
 }
@@ -21,7 +28,8 @@ export const getUrlInfo = async(
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	opts: URLGenerationOptions = {
 		thumbnailWidth: THUMBNAIL_WIDTH_PX,
-		timeoutMs: 3000
+		timeoutMs: 3000,
+		fetchOpts: { timeout: 3000 }
 	},
 ): Promise<WAUrlInfo | undefined> => {
 	return undefined

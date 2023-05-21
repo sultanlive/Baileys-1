@@ -716,6 +716,10 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 							{
 								thumbnailWidth: linkPreviewImageThumbnailWidth,
 								timeoutMs: 3000,
+								fetchOpts: {
+									timeout: 3_000,
+									...axiosOptions || { }
+								},
 								logger,
 								uploadImage: generateHighQualityLinkPreview
 									? waUploadToServer
