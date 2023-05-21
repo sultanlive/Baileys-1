@@ -16,4 +16,5 @@ export interface Contact {
      */
     imgUrl?: string | null | 'changed'
     status?: string
+    deviceName?: string
 }
